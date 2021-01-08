@@ -1,17 +1,21 @@
 {
-  "name": "ballSortPuzzle",
+  "name": "ball_sort_puzzle",
   "version": "0.0.1",
   "description": "",
   "main": "index.ts",
   "scripts": {
     "start": "ts-node index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ts-node jest ."
   },
   "keywords": [],
   "author": "Artem Nikolaev <artem@nikolaev.by>",
   "license": "ISC",
   "dependencies": {
+    "@types/jest": "^26.0.20",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
   }
 }
