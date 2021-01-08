@@ -9,7 +9,7 @@ describe('isSolved', () => {
       ['4', '4', '4'],
     ];
 
-    expect(isSolved(data)).toBe(true);
+    expect(isSolved(data)).toBeTruthy();
   });
 
   describe('цвет повторяется', () => {
@@ -30,7 +30,7 @@ describe('isSolved', () => {
 
     dataArr.forEach((data, i) => {
       it (String(i), () => {
-        expect(isSolved(data)).toBe(false)
+        expect(isSolved(data)).toBeFalsy()
       });
     });
   });
@@ -59,7 +59,7 @@ describe('isSolved', () => {
 
     dataArr.forEach((data, i) =>
       it(String(i), () => {
-        expect(isSolved(data)).toBe(false);
+        expect(isSolved(data)).toBeFalsy();
       })
     );
   });
