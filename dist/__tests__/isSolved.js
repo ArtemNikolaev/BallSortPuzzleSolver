@@ -28,10 +28,13 @@ describe('isSolved', () => {
       ]
     ];
 
-    dataArr.forEach(data =>
-      expect(isSolved(data)).toBe(false)
-    );
+    dataArr.forEach((data, i) => {
+      it (String(i), () => {
+        expect(isSolved(data)).toBe(false)
+      });
+    });
   });
+
   describe('колба заполнена больше чем одним цветом', () => {
     const dataArr = [
       [
@@ -46,10 +49,18 @@ describe('isSolved', () => {
         ['4', '3', '3'],
         ['4', '4', '4'],
       ],
+      [
+        [],
+        ['2', '2', '2'],
+        ['3', '3', '4'],
+        ['4', '4', '4'],
+      ],
     ];
 
-    dataArr.forEach(data =>
-      expect(isSolved(data)).toBe(false)
+    dataArr.forEach((data, i) =>
+      it(String(i), () => {
+        expect(isSolved(data)).toBe(false);
+      })
     );
   });
 });
