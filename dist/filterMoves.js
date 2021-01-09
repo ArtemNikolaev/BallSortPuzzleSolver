@@ -25,6 +25,12 @@ module.exports = function (storage, moveDictionary) {
       break;
     }
 
+    if (
+      storage[storage.length - 2] &&
+      storage[storage.length - 2].currentMove.from === move.to &&
+      storage[storage.length - 2].currentMove.to === move.from
+    ) result = false;
+
     return result;
   })
 }

@@ -54,5 +54,5 @@ module.exports = function (state, stakeDepth) {
     });
   })
 
-  return result.reverse();
+  return result;
 }
