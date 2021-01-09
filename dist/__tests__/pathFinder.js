@@ -34,6 +34,16 @@ describe('pathFinder', () => {
 
     expect(result).not.toContainEqual({from: 2, to: 2});
   })
+  it('edge case 2', () => {
+    const input = [
+      ['2', '2', '2','2'],
+      [],
+    ];
+
+    const result = sut(input, 4);
+
+    expect(result).not.toContainEqual({from: 0, to: 1});
+  })
 
   describe('неполная колба', () => {
     const input = [
