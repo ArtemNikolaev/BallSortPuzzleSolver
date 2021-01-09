@@ -31,6 +31,11 @@ module.exports = function (storage, moveDictionary) {
       storage[storage.length - 2].currentMove.to === move.from
     ) result = false;
 
+    if (
+      board[move.from].every(el => el === board[move.from][0]) &&
+      !board[move.to].length
+    ) result = false;
+
     return result;
   })
 }
