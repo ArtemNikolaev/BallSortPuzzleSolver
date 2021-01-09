@@ -45,4 +45,27 @@ describe('pathFinder', () => {
       });
     });
   })
+
+  describe('нет ходов', () => {
+    const input = [
+      [
+        ['2'],
+        ['3','4'],
+        ['4', '3']
+      ],
+      [
+        ['2', '3'],
+        ['2', '3']
+      ]
+    ];
+    const out = [];
+
+    input.forEach((input, index) => {
+      const result = sut(input, 2);
+
+      it(String(index), () => {
+        expect(result).toEqual(out);
+      });
+    });
+  })
 });

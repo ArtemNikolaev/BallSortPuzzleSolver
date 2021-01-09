@@ -32,14 +32,12 @@ module.exports = function (state, stakeDepth) {
     }
   });
 
-  console.log({from, to});
-
   Object.keys(to).forEach(value => {
     if (!from[value]) return;
 
     to[value].forEach(to => {
       from[value].forEach(from => {
-        result.push({ from, to });
+        if (to !== from) result.push({ from, to });
       });
     });
   })
