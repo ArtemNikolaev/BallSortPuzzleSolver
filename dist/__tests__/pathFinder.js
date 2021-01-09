@@ -23,6 +23,18 @@ describe('pathFinder', () => {
     });
   })
 
+  it('пустая колба: edge case 1', () => {
+    const input = [
+      ['1', '1', '2','2'],
+      ['1', '1', '2','2'],
+      [],
+    ];
+
+    const result = sut(input, 1);
+
+    expect(result).not.toContainEqual({from: 2, to: 2});
+  })
+
   describe('неполная колба', () => {
     const input = [
       ['2'],
@@ -68,4 +80,5 @@ describe('pathFinder', () => {
       });
     });
   })
+
 });

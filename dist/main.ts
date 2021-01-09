@@ -1,6 +1,7 @@
 const isSolved = require('./isSolved');
 const pathFinder = require('./pathFinder');
 const makeMove = require('./makeMove');
+const filterMoves = require('./filterMoves');
 
 interface Move {
   from: Number,
@@ -14,23 +15,20 @@ interface State {
 }
 
 export default function solver(board, stakeDepth) {
-
-  // @ts-ignore
-  global.exeptions = Array(board.length);
-  // @ts-ignore
-  global.exeptions.forEach((el, i, ar) => ar[i] = []);
-
   const storage: State[] = [{
     board
   }];
+  const moveDictionary = [];
 
   let counter = 0;
 
   while (!isSolved(storage[storage.length - 1].board)) {
+    // @ts-ignore
     const lastIndex = storage.length - 1;
     const state = storage[lastIndex];
 
-    state.way = pathFinder(state.board);
+    state.way = pathFinder(state.board, stakeDepth);
+    filterMoves(storage, moveDictionary);
     makeMove(storage);
 
     console.log(++counter);

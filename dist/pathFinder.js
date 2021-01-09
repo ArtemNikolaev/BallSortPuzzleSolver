@@ -7,7 +7,7 @@ module.exports = function (state, stakeDepth) {
     const emptyStakes = state.findIndex(stake => !stake.length);
 
     if (emptyStakes !== -1) {
-      state.forEach((stake, from) => result.push(
+      state.forEach((stake, from) => stake.length && result.push(
         {
           from,
           to: emptyStakes,
@@ -18,7 +18,6 @@ module.exports = function (state, stakeDepth) {
 
   state.forEach((stake, index) => {
     if (!stake.length) return;
-
     const el = stake[stake.length-1];
 
     if (!from[el]) from[el] = [];
@@ -42,5 +41,5 @@ module.exports = function (state, stakeDepth) {
     });
   })
 
-  return result;
+  return result.reverse();
 }

@@ -1,7 +1,13 @@
 module.exports = function makeMove(storage) {
   const lastState = storage[storage.length - 1];
 
+  if (!lastState) {
+    console.log('Решения не существует');
+    process.exit();
+  }
+
   if (!lastState.way.length) {
+    console.log('pop happen');
     storage.pop();
 
     return makeMove(storage);
